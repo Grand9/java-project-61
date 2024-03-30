@@ -1,6 +1,7 @@
 plugins {
     java
     application
+    checkstyle
 }
 
 application {
@@ -24,3 +25,4 @@ dependencies {
 tasks.getByName<JavaExec>("run") {
     standardInput = System.`in`
 }
+
