@@ -1,13 +1,14 @@
 plugins {
-    id 'java'
-    id 'application'
+    java
+    application
+}
 
-}
 application {
-    mainClass = 'hexlet.code.App'
+    mainClass.set("hexlet.code.App")
 }
-group = 'hexlet.code'
-version = '1.0-SNAPSHOT'
+
+group = "hexlet.code"
+version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -20,6 +21,6 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
-test {
-    useJUnitPlatform()
+tasks.getByName<JavaExec>("run") {
+    standardInput = System.`in`
 }
