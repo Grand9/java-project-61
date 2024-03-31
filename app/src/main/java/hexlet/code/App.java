@@ -9,6 +9,7 @@ public class App {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
+        System.out.println("3 - Calc");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         int choice = scanner.nextInt();
@@ -22,6 +23,9 @@ public class App {
                 break;
             case 2:
                 Games.startEvenGame(scanner);
+                break;
+            case 3:
+                Games.calculator(scanner);
                 break;
             default:
                 System.out.println("Invalid choice. Please enter a valid game number.");
