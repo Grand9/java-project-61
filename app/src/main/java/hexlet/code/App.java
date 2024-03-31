@@ -21,7 +21,7 @@ public class App {
                 System.out.println("Goodbye!");
                 break;
             case 2:
-                Cli.startEvenGame(scanner);
+                Games.startEvenGame(scanner);
                 break;
             default:
                 System.out.println("Invalid choice. Please enter a valid game number.");
