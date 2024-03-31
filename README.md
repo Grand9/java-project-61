@@ -5,3 +5,5 @@
 ![Скриншот 31-03-2024 140141](https://github.com/Grand9/java-project-61/assets/163022198/5b051d7b-d24c-4445-89cd-75692394d743)
 
 ![image](https://github.com/Grand9/java-project-61/assets/163022198/04e3a1aa-fd40-48db-b5cf-554697bf28a4)
+
+![image](https://github.com/Grand9/java-project-61/assets/163022198/3151afe4-9e2a-42db-be37-ab39333fbc36)
