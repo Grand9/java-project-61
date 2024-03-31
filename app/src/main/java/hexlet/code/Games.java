@@ -15,7 +15,7 @@ public class Games {
         int correctAnswersCount = 0;
 
         while (correctAnswersCount < 3) {
-            int randomNumber = random.nextInt(100); // Generate a random number from 0 to 99
+            int randomNumber = random.nextInt(1000);
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
@@ -28,7 +28,7 @@ public class Games {
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
-                correctAnswersCount = 0; // Reset the correct answers count
+                correctAnswersCount = 0; // Сброс счетчика правильных ответов
             }
         }
 
