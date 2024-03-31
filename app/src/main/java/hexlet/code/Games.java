@@ -47,7 +47,7 @@ public class Games {
 
         while (correctAnswersCount < 3) {
             int randomNumber1 = random.nextInt(100);
-            int randomNumber2 = random.nextInt(100);
+            int randomNumber2 = random.nextInt(50);
             int signIndex = random.nextInt(3);
             char[] signs = {'+', '-', '*'};
             char sign = signs[signIndex];
