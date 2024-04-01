@@ -4,6 +4,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Games {
+    private static final int NUM_ITERATIONS = 3;
+    private static final int RANDOM_UPPER_BOUND = 100;
+    private static final int RANDOM_STEP_RANGE = 10;
+
     public static void startEvenGame(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
@@ -14,8 +18,8 @@ public class Games {
         Random random = new Random();
         int correctAnswersCount = 0;
 
-        while (correctAnswersCount < 3) {
-            int randomNumber = random.nextInt(100);
+        while (correctAnswersCount < NUM_ITERATIONS) {
+            int randomNumber = random.nextInt(RANDOM_UPPER_BOUND);
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
@@ -46,10 +50,10 @@ public class Games {
         Random random = new Random();
         int correctAnswersCount = 0;
 
-        while (correctAnswersCount < 3) {
-            int randomNumber1 = random.nextInt(100);
-            int randomNumber2 = random.nextInt(50);
-            int signIndex = random.nextInt(3);
+        while (correctAnswersCount < NUM_ITERATIONS) {
+            int randomNumber1 = random.nextInt(RANDOM_UPPER_BOUND);
+            int randomNumber2 = random.nextInt(RANDOM_UPPER_BOUND);
+            int signIndex = random.nextInt(NUM_ITERATIONS);
             char[] signs = {'+', '-', '*'};
             char sign = signs[signIndex];
 
@@ -96,9 +100,9 @@ public class Games {
         Random random = new Random();
         int correctAnswersCount = 0;
 
-        while (correctAnswersCount < 3) {
-            int randomNumber1 = random.nextInt(50);
-            int randomNumber2 = random.nextInt(50);
+        while (correctAnswersCount < NUM_ITERATIONS) {
+            int randomNumber1 = random.nextInt(RANDOM_UPPER_BOUND);
+            int randomNumber2 = random.nextInt(RANDOM_UPPER_BOUND);
             System.out.println("Question: " + randomNumber1 + " " + randomNumber2);
             System.out.print("Your answer: ");
 
@@ -145,19 +149,19 @@ public class Games {
         Random random = new Random();
         int correctAnswersCount = 0;
 
-        while (correctAnswersCount < 3) {
-            int start = random.nextInt(50);
-            int step = random.nextInt(10) + 1;
-            int missIndex = random.nextInt(10);
-            int[] progression = new int[10];
+        while (correctAnswersCount < NUM_ITERATIONS) {
+            int start = random.nextInt(RANDOM_UPPER_BOUND);
+            int step = random.nextInt(RANDOM_STEP_RANGE) + 1;
+            int missIndex = random.nextInt(RANDOM_STEP_RANGE);
+            int[] progression = new int[RANDOM_STEP_RANGE];
 
             StringBuilder question = new StringBuilder();
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < RANDOM_STEP_RANGE; i++) {
                 progression[i] = start + i * step;
                 question.append(i == missIndex ? ".. " : progression[i] + " ");
             }
 
-            System.out.println("Question: " + question.toString());
+            System.out.println("Question: " + question);
             System.out.print("Your answer: ");
 
             // Проверяем, что введено целое число
@@ -194,8 +198,8 @@ public class Games {
         Random random = new Random();
         int correctAnswersCount = 0;
 
-        while (correctAnswersCount < 3) {
-            int randomNumber1 = random.nextInt(100);
+        while (correctAnswersCount < NUM_ITERATIONS) {
+            int randomNumber1 = random.nextInt(RANDOM_UPPER_BOUND);
             System.out.println("Question: " + randomNumber1);
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
