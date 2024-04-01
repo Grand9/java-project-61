@@ -136,6 +136,10 @@ public class Games {
     }
 
     public static void progression(Scanner scanner) {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("May I have your name? ");
+        String userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
         System.out.println("What number is missing in the progression?");
 
         Random random = new Random();
@@ -154,7 +158,6 @@ public class Games {
             }
 
             System.out.println("Question: " + question.toString());
-
             System.out.print("Your answer: ");
 
             // Проверяем, что введено целое число
@@ -174,11 +177,11 @@ public class Games {
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'.");
-                System.out.println("Let's try again!");
+                System.out.println("Let's try again, " + userName + "!");
                 return; // Прерываем игру при неверном ответе
             }
         }
-        System.out.println("Congratulations!");
+        System.out.println("Congratulations, " + userName + "!");
     }
 
     public static void prime(Scanner scanner) {
