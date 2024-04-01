@@ -7,7 +7,7 @@ public class Games {
     public static void startEvenGame(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        String userName = scanner.nextLine(); // scanner.next() изменено на nextLine()
+        String userName = scanner.nextLine();
         System.out.println("Hello, " + userName + "!");
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
