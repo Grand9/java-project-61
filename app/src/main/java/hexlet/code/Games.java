@@ -68,7 +68,7 @@ public class Games {
                 case '+' -> randomNumber1 + randomNumber2;
                 case '-' -> randomNumber1 - randomNumber2;
                 case '*' -> randomNumber1 * randomNumber2;
-                default -> 0; // Default value
+                default -> 0; 
             };
 
             if (userAnswer == correctAnswer) {
