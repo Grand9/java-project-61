@@ -123,4 +123,46 @@ public class Games {
 
         System.out.println("Congratulations, " + userName + "!");
     }
+    public static void Progression(Scanner scanner) {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
+        System.out.println("What number is missing in the progression?");
+
+        Random random = new Random();
+        int correctAnswersCount = 0;
+
+        while (correctAnswersCount < 3) {
+            int start = random.nextInt(50);
+            int step = random.nextInt(10) + 1;
+            int missIndex = random.nextInt(10);
+            int[] progression = new int[10];
+
+            for (int i = 0; i < 10; i++) {
+                progression[i] = start + i * step;
+            }
+
+            for (int i = 0; i < 10; i++) {
+                System.out.print(i == missIndex ? ".. " : progression[i] + " ");
+            }
+            System.out.println();
+
+            System.out.print("Your answer: ");
+            String userAnswer = scanner.next();
+
+            String correctAnswer = String.valueOf(start + missIndex * step);
+
+            if (userAnswer.equals(correctAnswer)) {
+                System.out.println("Correct!");
+                correctAnswersCount++;
+            } else {
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                System.out.println("Let's try again, " + userName + "!");
+                correctAnswersCount = 0;
+            }
+        }
+
+        System.out.println("Congratulations, " + userName + "!");
+    }
 }
