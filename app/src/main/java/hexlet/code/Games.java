@@ -22,15 +22,15 @@ public class Games {
 
             String correctAnswer = (randomNumber % 2 == 0) ? "yes" : "no";
 
-            if (userAnswer.equalsIgnoreCase(correctAnswer)) {
-                System.out.println("Correct!");
-                correctAnswersCount++;
-            } else {
+            if (!userAnswer.equalsIgnoreCase(correctAnswer)) {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
-                correctAnswersCount = 0;
+                return; // Завершаем метод при неверном ответе
             }
+
+            System.out.println("Correct!");
+            correctAnswersCount++;
         }
 
         System.out.println("Congratulations, " + userName + "!");
