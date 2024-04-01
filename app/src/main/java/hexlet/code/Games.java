@@ -179,7 +179,7 @@ public class Games {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
-                correctAnswersCount = 0;
+                correctAnswersCount = 0; // Сброс счетчика правильных ответов
             }
         }
         System.out.println("Congratulations, " + userName + "!");
