@@ -12,6 +12,7 @@ public class App {
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         int choice = scanner.nextInt();
@@ -34,6 +35,9 @@ public class App {
                 break;
             case 5:
                 Games.Progression(scanner);
+                break;
+            case 6:
+                Games.Prime(scanner);
                 break;
             default:
                 System.out.println("Invalid choice. Please enter a valid game number.");
