@@ -7,7 +7,7 @@ public class Games {
     public static void startEvenGame(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        String userName = scanner.next();
+        String userName = scanner.nextLine(); // scanner.next() изменено на nextLine()
         System.out.println("Hello, " + userName + "!");
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
@@ -15,7 +15,7 @@ public class Games {
         int correctAnswersCount = 0;
 
         while (correctAnswersCount < 3) {
-            int randomNumber = random.nextInt(1000);
+            int randomNumber = random.nextInt(100);
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
@@ -29,7 +29,7 @@ public class Games {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
-                correctAnswersCount = 0; // Сброс счетчика правильных ответов
+                correctAnswersCount = 0;
             }
         }
 
