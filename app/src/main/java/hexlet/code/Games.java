@@ -180,7 +180,7 @@ public class Games {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
-                correctAnswersCount = 0; // Сброс счетчика правильных ответов
+                return; // Прерываем игру при неверном ответе
             }
         }
         System.out.println("Congratulations, " + userName + "!");
@@ -221,7 +221,7 @@ public class Games {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
-                correctAnswersCount = 0;
+                return; // Прерываем игру при неверном ответе
             }
         }
         System.out.println("Congratulations, " + userName + "!");
