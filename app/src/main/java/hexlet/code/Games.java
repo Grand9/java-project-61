@@ -55,14 +55,15 @@ public class Games {
 
             System.out.println("Question: " + randomNumber1 + " " + sign + " " + randomNumber2);
             System.out.print("Your answer: ");
-            int userAnswer;
-            if (scanner.hasNextInt()) {
-                userAnswer = scanner.nextInt();
-            } else {
+
+            // Проверяем, что введено целое число
+            if (!scanner.hasNextInt()) {
                 System.out.println("Invalid input. Please enter a numeric answer.");
                 scanner.next(); // Чистка неверного ввода
                 continue; // Пропускаем итерацию цикла и продолжаем игру
             }
+
+            int userAnswer = scanner.nextInt();
 
             int correctAnswer = switch (sign) {
                 case '+' -> randomNumber1 + randomNumber2;
@@ -99,18 +100,28 @@ public class Games {
             int randomNumber2 = random.nextInt(50);
             System.out.println("Question: " + randomNumber1 + " " + randomNumber2);
             System.out.print("Your answer: ");
-            String userAnswer = scanner.next();
+
+            // Проверяем, что введено целое число
+            if (!scanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter an integer answer.");
+                scanner.next(); // Чистка неверного ввода
+                continue; // Пропускаем итерацию цикла и продолжаем игру
+            }
+
+            int userAnswer = scanner.nextInt();
 
             int correctAnswer;
             // Находим наибольший общий делитель
-            while (randomNumber2 != 0) {
-                int temp = randomNumber2;
-                randomNumber2 = randomNumber1 % randomNumber2;
-                randomNumber1 = temp;
+            int a = randomNumber1;
+            int b = randomNumber2;
+            while (b != 0) {
+                int temp = b;
+                b = a % b;
+                a = temp;
             }
-            correctAnswer = randomNumber1;
+            correctAnswer = a;
 
-            if (userAnswer.equals(String.valueOf(correctAnswer))) {
+            if (userAnswer == correctAnswer) {
                 System.out.println("Correct!");
                 correctAnswersCount++;
             } else {
@@ -149,11 +160,19 @@ public class Games {
             System.out.println();
 
             System.out.print("Your answer: ");
-            String userAnswer = scanner.next();
 
-            String correctAnswer = String.valueOf(start + missIndex * step);
+            // Проверяем, что введено целое число
+            if (!scanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter an integer answer.");
+                scanner.next(); // Чистка неверного ввода
+                continue; // Пропускаем итерацию цикла и продолжаем игру
+            }
 
-            if (userAnswer.equals(correctAnswer)) {
+            int userAnswer = scanner.nextInt();
+
+            int correctAnswer = start + missIndex * step;
+
+            if (userAnswer == correctAnswer) {
                 System.out.println("Correct!");
                 correctAnswersCount++;
             } else {
@@ -181,6 +200,12 @@ public class Games {
             System.out.println("Question: " + randomNumber1);
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
+
+            // Проверка корректности ввода пользователя
+            if (!userAnswer.equals("yes") && !userAnswer.equals("no")) {
+                System.out.println("Invalid input. Please answer 'yes' or 'no'.");
+                continue; // Пропускаем итерацию цикла и продолжаем игру
+            }
 
             int d = 2;
             while (randomNumber1 % d != 0 && d != randomNumber1) {
