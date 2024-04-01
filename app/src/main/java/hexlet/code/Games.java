@@ -136,10 +136,6 @@ public class Games {
     }
 
     public static void progression(Scanner scanner) {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
         System.out.println("What number is missing in the progression?");
 
         Random random = new Random();
@@ -151,14 +147,13 @@ public class Games {
             int missIndex = random.nextInt(10);
             int[] progression = new int[10];
 
+            StringBuilder question = new StringBuilder();
             for (int i = 0; i < 10; i++) {
                 progression[i] = start + i * step;
+                question.append(i == missIndex ? ".. " : progression[i] + " ");
             }
 
-            for (int i = 0; i < 10; i++) {
-                System.out.print(i == missIndex ? ".. " : progression[i] + " ");
-            }
-            System.out.println();
+            System.out.println("Question: " + question.toString());
 
             System.out.print("Your answer: ");
 
@@ -179,11 +174,11 @@ public class Games {
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'.");
-                System.out.println("Let's try again, " + userName + "!");
+                System.out.println("Let's try again!");
                 return; // Прерываем игру при неверном ответе
             }
         }
-        System.out.println("Congratulations, " + userName + "!");
+        System.out.println("Congratulations!");
     }
 
     public static void prime(Scanner scanner) {
