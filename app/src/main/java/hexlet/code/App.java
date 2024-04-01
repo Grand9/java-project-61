@@ -34,10 +34,10 @@ public class App {
                 Games.gcd(scanner);
                 break;
             case 5:
-                Games.Progression(scanner);
+                Games.progression(scanner);
                 break;
             case 6:
-                Games.Prime(scanner);
+                Games.prime(scanner);
                 break;
             default:
                 System.out.println("Invalid choice. Please enter a valid game number.");

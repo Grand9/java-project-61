@@ -123,7 +123,7 @@ public class Games {
 
         System.out.println("Congratulations, " + userName + "!");
     }
-    public static void Progression(Scanner scanner) {
+    public static void progression(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String userName = scanner.next();
@@ -157,7 +157,8 @@ public class Games {
                 System.out.println("Correct!");
                 correctAnswersCount++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
+                        + correctAnswer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
                 correctAnswersCount = 0;
             }
@@ -165,37 +166,38 @@ public class Games {
         System.out.println("Congratulations, " + userName + "!");
     }
 
-        public static void Prime(Scanner scanner) {
-            System.out.println("Welcome to the Brain Games!");
-            System.out.print("May I have your name? ");
-            String userName = scanner.next();
-            System.out.println("Hello, " + userName + "!");
-            System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    public static void prime(Scanner scanner) {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-            Random random = new Random();
-            int correctAnswersCount = 0;
+        Random random = new Random();
+        int correctAnswersCount = 0;
 
-            while (correctAnswersCount < 3) {
-                int randomNumber1 = random.nextInt(100);
-                System.out.println("Question: " + randomNumber1);
-                System.out.print("Your answer: ");
-                String userAnswer = scanner.next();
+        while (correctAnswersCount < 3) {
+            int randomNumber1 = random.nextInt(100);
+            System.out.println("Question: " + randomNumber1);
+            System.out.print("Your answer: ");
+            String userAnswer = scanner.next();
 
-                int d = 2;
-                while (randomNumber1 % d != 0 && d != randomNumber1) {
-                    d++;
-                }
-                String correctAnswer = (d == randomNumber1) ? "yes" : "no";
-
-                if (userAnswer.equals(correctAnswer)) {
-                    System.out.println("Correct!");
-                    correctAnswersCount++;
-                } else {
-                    System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                    System.out.println("Let's try again, " + userName + "!");
-                    correctAnswersCount = 0;
-                }
+            int d = 2;
+            while (randomNumber1 % d != 0 && d != randomNumber1) {
+                d++;
             }
-            System.out.println("Congratulations, " + userName + "!");
+            String correctAnswer = (d == randomNumber1) ? "yes" : "no";
+
+            if (userAnswer.equals(correctAnswer)) {
+                System.out.println("Correct!");
+                correctAnswersCount++;
+            } else {
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
+                        + correctAnswer + "'.");
+                System.out.println("Let's try again, " + userName + "!");
+                correctAnswersCount = 0;
+            }
         }
+        System.out.println("Congratulations, " + userName + "!");
     }
+}
