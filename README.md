@@ -17,4 +17,15 @@ Progression: Определение пропущенного числа в ар�
 Prime: Определение, является ли число простым или составным.
 Теперь вы готовы начать тренировать свой разум с помощью Brain Games! Удачи и приятной игры!
 
-[![asciicast](https://asciinema.org/a/bhx5gQZJEex5VwdAWIU0W409s.svg)](https://asciinema.org/a/bhx5gQZJEex5VwdAWIU0W409s)
+[![asciicast](https://asciinema.org/a/wVPmfAWUEAw2oHZgjqWWc5dUj.svg)](https://asciinema.org/a/wVPmfAWUEAw2oHZgjqWWc5dUj)
+
+[![asciicast](https://asciinema.org/a/9wndkRTyCYf4SEfXD6XpPhDeN.svg)](https://asciinema.org/a/9wndkRTyCYf4SEfXD6XpPhDeN)
+
+[![asciicast](https://asciinema.org/a/gRR6nQ4wI3VVEl2T3Am6aosra.svg)](https://asciinema.org/a/gRR6nQ4wI3VVEl2T3Am6aosra)
+
+[![asciicast](https://asciinema.org/a/i1gTn3UtZyGuceDDiCvHVhrGB.svg)](https://asciinema.org/a/i1gTn3UtZyGuceDDiCvHVhrGB)
+
+[![asciicast](https://asciinema.org/a/5pilZphxHqQg7HasJ06woSB4I.svg)](https://asciinema.org/a/5pilZphxHqQg7HasJ06woSB4I)
+
+[![asciicast](https://asciinema.org/a/zHYu84g6wCwDwg6oiUQMeMDk0.svg)](https://asciinema.org/a/zHYu84g6wCwDwg6oiUQMeMDk0)
+
