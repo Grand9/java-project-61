@@ -17,4 +17,4 @@ Progression: Определение пропущенного числа в ар�
 Prime: Определение, является ли число простым или составным.
 Теперь вы готовы начать тренировать свой разум с помощью Brain Games! Удачи и приятной игры!
 
-[![asciicast](https://asciinema.org/a/bhx5gQZJEex5VwdAWIU0W409s.svg)]
+[![asciicast](https://asciinema.org/a/bhx5gQZJEex5VwdAWIU0W409s.svg)](https://asciinema.org/a/bhx5gQZJEex5VwdAWIU0W409s)
