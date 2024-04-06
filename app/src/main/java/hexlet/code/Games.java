@@ -3,23 +3,28 @@ package hexlet.code;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Games {
+public class EvenGame {
     private static final int NUM_ITERATIONS = 3;
     private static final int RANDOM_UPPER_BOUND = 100;
-    private static final int RANDOM_STEP_RANGE = 10;
 
-    public static void startEvenGame(Scanner scanner) {
+    // Метод, возвращающий случайное число
+    public static int generateRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(RANDOM_UPPER_BOUND);
+    }
+
+    // Метод, передающий сгенерированные данные и описание игры в движок
+    public static void startGame(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        Random random = new Random();
         int correctAnswersCount = 0;
 
         while (correctAnswersCount < NUM_ITERATIONS) {
-            int randomNumber = random.nextInt(RANDOM_UPPER_BOUND);
+            int randomNumber = generateRandomNumber();
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
@@ -39,8 +44,32 @@ public class Games {
 
         System.out.println("Congratulations, " + userName + "!");
     }
+}
 
-    public static void calculator(Scanner scanner) {
+
+public class CalculatorGame {
+
+    private static final int NUM_ITERATIONS = 3;
+    private static final int RANDOM_UPPER_BOUND = 100;
+    public static int generateRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(RANDOM_UPPER_BOUND);
+    }
+
+    public static int correctResult(int num1, int num2, char operator) {
+        switch (operator) {
+            case '+':
+                return num1 + num2;
+            case '-':
+                return num1 - num2;
+            case '*':
+                return num1 * num2;
+            default:
+                throw new IllegalArgumentException("Invalid operator: " + operator);
+        }
+    }
+
+    public static void startGame(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String userName = scanner.next();
@@ -51,9 +80,9 @@ public class Games {
         int correctAnswersCount = 0;
 
         while (correctAnswersCount < NUM_ITERATIONS) {
-            int randomNumber1 = random.nextInt(RANDOM_UPPER_BOUND);
-            int randomNumber2 = random.nextInt(RANDOM_UPPER_BOUND);
-            int signIndex = random.nextInt(NUM_ITERATIONS);
+            int randomNumber1 = generateRandomNumber();
+            int randomNumber2 = generateRandomNumber();
+            int signIndex = random.nextInt(3); // 3 - количество знаков: +, -, *
             char[] signs = {'+', '-', '*'};
             char sign = signs[signIndex];
 
@@ -69,12 +98,8 @@ public class Games {
 
             int userAnswer = scanner.nextInt();
 
-            int correctAnswer = switch (sign) {
-                case '+' -> randomNumber1 + randomNumber2;
-                case '-' -> randomNumber1 - randomNumber2;
-                case '*' -> randomNumber1 * randomNumber2;
-                default -> 0;
-            };
+            int correctAnswer = correctResult(randomNumber1,randomNumber2, sign);
+
 
             if (userAnswer == correctAnswer) {
                 System.out.println("Correct!");
@@ -89,7 +114,25 @@ public class Games {
 
         System.out.println("Congratulations, " + userName + "!");
     }
+}
 
+public class GcdGame {
+
+    private static final int NUM_ITERATIONS = 3;
+    private static final int RANDOM_UPPER_BOUND = 100;
+    public static int generateRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(RANDOM_UPPER_BOUND) + 1;
+    }
+
+    public static int correctResult(int num1, int num2) {
+        while (num2 != 0) {
+            int temp = num2;
+            num2 = num1 % num2;
+            num1 = temp;
+        }
+        return num1;
+    }
     public static void gcd(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
@@ -101,8 +144,8 @@ public class Games {
         int correctAnswersCount = 0;
 
         while (correctAnswersCount < NUM_ITERATIONS) {
-            int randomNumber1 = random.nextInt(RANDOM_UPPER_BOUND);
-            int randomNumber2 = random.nextInt(RANDOM_UPPER_BOUND);
+            int randomNumber1 = generateRandomNumber();
+            int randomNumber2 = generateRandomNumber();
             System.out.println("Question: " + randomNumber1 + " " + randomNumber2);
             System.out.print("Your answer: ");
 
@@ -117,14 +160,8 @@ public class Games {
 
             int correctAnswer;
             // Находим наибольший общий делитель
-            int a = randomNumber1;
-            int b = randomNumber2;
-            while (b != 0) {
-                int temp = b;
-                b = a % b;
-                a = temp;
-            }
-            correctAnswer = a;
+
+            correctAnswer = correctResult(randomNumber1,randomNumber2);
 
             if (userAnswer == correctAnswer) {
                 System.out.println("Correct!");
@@ -138,7 +175,26 @@ public class Games {
         }
         System.out.println("Congratulations, " + userName + "!");
     }
+}
 
+class ProgressionGame {
+
+    private static final int NUM_ITERATIONS = 3;
+    private static final int RANDOM_UPPER_BOUND = 100;
+    private static final int RANDOM_STEP_RANGE = 10;
+
+    public static int generateRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(RANDOM_UPPER_BOUND) + 1;
+    }
+    public static int generateRandomStepRange() {
+        Random random = new Random();
+        return random.nextInt(RANDOM_STEP_RANGE) + 1;
+    }
+
+    public static int correctResult(int startNum,int missIndex,int step) {
+        return startNum + missIndex * step;
+    }
     public static void progression(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name? ");
@@ -150,13 +206,13 @@ public class Games {
         int correctAnswersCount = 0;
 
         while (correctAnswersCount < NUM_ITERATIONS) {
-            int start = random.nextInt(RANDOM_UPPER_BOUND);
+            int start = generateRandomNumber();
             int step = random.nextInt(RANDOM_STEP_RANGE) + 1;
-            int missIndex = random.nextInt(RANDOM_STEP_RANGE);
-            int[] progression = new int[RANDOM_STEP_RANGE];
+            int missIndex = generateRandomStepRange();
+            int[] progression = new int RANDOM_STEP_RANGE;
 
             StringBuilder question = new StringBuilder();
-            for (int i = 0; i < RANDOM_STEP_RANGE; i++) {
+            for (int i = 0; i < RANDOM_STEP_RANGE(); i++) {
                 progression[i] = start + i * step;
                 question.append(i == missIndex ? ".. " : progression[i] + " ");
             }
@@ -173,7 +229,7 @@ public class Games {
 
             int userAnswer = scanner.nextInt();
 
-            int correctAnswer = start + missIndex * step;
+            int correctAnswer = correctResult(start, missIndex, step);
 
             if (userAnswer == correctAnswer) {
                 System.out.println("Correct!");
@@ -187,7 +243,8 @@ public class Games {
         }
         System.out.println("Congratulations, " + userName + "!");
     }
-
+}
+class PrimeGame {
     public static void prime(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
@@ -229,3 +286,4 @@ public class Games {
         System.out.println("Congratulations, " + userName + "!");
     }
 }
+
