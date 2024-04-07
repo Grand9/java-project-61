@@ -94,7 +94,7 @@ class CalculatorGame {
 
             int userAnswer = scanner.nextInt();
 
-            int correctAnswer = correctResult(randomNumber1,randomNumber2, sign);
+            int correctAnswer = correctResult(randomNumber1, randomNumber2, sign);
 
 
             if (userAnswer == correctAnswer) {
@@ -156,7 +156,7 @@ class GcdGame {
             int correctAnswer;
             // Находим наибольший общий делитель
 
-            correctAnswer = correctResult(randomNumber1,randomNumber2);
+            correctAnswer = correctResult(randomNumber1, randomNumber2);
 
             if (userAnswer == correctAnswer) {
                 System.out.println("Correct!");
@@ -187,29 +187,34 @@ class ProgressionGame {
         return random.nextInt(RANDOM_STEP_RANGE) + 1;
     }
 
-    public static int correctResult(int startNum,int missIndex,int step) {
+    public static int correctResult(int startNum, int missIndex, int step) {
         return startNum + missIndex * step;
     }
     public static void startGame(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name? ");
+        System.out.print("May I have your name? ");
         String userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
         System.out.println("What number is missing in the progression?");
 
         Random random = new Random();
         int correctAnswersCount = 0;
+        int missIndex = generateRandomStepRange();
 
         while (correctAnswersCount < NUM_ITERATIONS) {
             int start = generateRandomNumber();
             int step = random.nextInt(RANDOM_STEP_RANGE) + 1;
-            int missIndex = generateRandomStepRange();
-            int[] progression = new int [RANDOM_STEP_RANGE];
+            int[] progression = new int[RANDOM_STEP_RANGE];
+
 
             StringBuilder question = new StringBuilder();
             for (int i = 0; i < RANDOM_STEP_RANGE; i++) {
-                progression[i] = start + i * step;
-                question.append(i == missIndex ? ".. " : progression[i] + " ");
+                if (i == missIndex) {
+                    question.append(".. ");
+                } else {
+                    progression[i] = start + i * step;
+                    question.append(progression[i]).append(" ");
+                }
             }
 
             System.out.println("Question: " + question);
