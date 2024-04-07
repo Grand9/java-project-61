@@ -33,19 +33,19 @@ public class App {
                 System.out.println("Goodbye!");
                 break;
             case EVEN_GAME:
-                Games.startEvenGame(scanner);
+                EvenGame.startGame(scanner);
                 break;
             case CALC_GAME:
-                Games.calculator(scanner);
+                CalculatorGame.startGame(scanner);
                 break;
             case GCD_GAME:
-                Games.gcd(scanner);
+                GcdGame.startGame(scanner);
                 break;
             case PROGRESSION_GAME:
-                Games.progression(scanner);
+                ProgressionGame.startGame(scanner);
                 break;
             case PRIME_GAME:
-                Games.prime(scanner);
+                PrimeGame.startGame(scanner);
                 break;
             default:
                 System.out.println("Invalid choice. Please enter a valid game number.");
