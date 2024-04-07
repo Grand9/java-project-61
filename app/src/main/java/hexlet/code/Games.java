@@ -78,7 +78,7 @@ class CalculatorGame {
         while (correctAnswersCount < NUM_ITERATIONS) {
             int randomNumber1 = generateRandomNumber();
             int randomNumber2 = generateRandomNumber();
-            int signIndex = random.nextInt(3); // 3 - количество знаков: +, -, *
+            int signIndex = random.nextInt(NUM_ITERATIONS); // 3 - количество знаков: +, -, *
             char[] signs = {'+', '-', '*'};
             char sign = signs[signIndex];
 
