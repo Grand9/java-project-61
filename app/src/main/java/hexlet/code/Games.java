@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Random;
 import java.util.Scanner;
 
-public class EvenGame {
+class EvenGame {
     private static final int NUM_ITERATIONS = 3;
     private static final int RANDOM_UPPER_BOUND = 100;
 
@@ -47,7 +47,7 @@ public class EvenGame {
 }
 
 
-public class CalculatorGame {
+class CalculatorGame {
 
     private static final int NUM_ITERATIONS = 3;
     private static final int RANDOM_UPPER_BOUND = 100;
@@ -57,16 +57,12 @@ public class CalculatorGame {
     }
 
     public static int correctResult(int num1, int num2, char operator) {
-        switch (operator) {
-            case '+':
-                return num1 + num2;
-            case '-':
-                return num1 - num2;
-            case '*':
-                return num1 * num2;
-            default:
-                throw new IllegalArgumentException("Invalid operator: " + operator);
-        }
+        return switch (operator) {
+            case '+' -> num1 + num2;
+            case '-' -> num1 - num2;
+            case '*' -> num1 * num2;
+            default -> throw new IllegalArgumentException("Invalid operator: " + operator);
+        };
     }
 
     public static void startGame(Scanner scanner) {
@@ -116,7 +112,7 @@ public class CalculatorGame {
     }
 }
 
-public class GcdGame {
+class GcdGame {
 
     private static final int NUM_ITERATIONS = 3;
     private static final int RANDOM_UPPER_BOUND = 100;
@@ -133,14 +129,13 @@ public class GcdGame {
         }
         return num1;
     }
-    public static void gcd(Scanner scanner) {
+    public static void startGame(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
         System.out.println("Find the greatest common divisor of given numbers.");
 
-        Random random = new Random();
         int correctAnswersCount = 0;
 
         while (correctAnswersCount < NUM_ITERATIONS) {
@@ -195,7 +190,7 @@ class ProgressionGame {
     public static int correctResult(int startNum,int missIndex,int step) {
         return startNum + missIndex * step;
     }
-    public static void progression(Scanner scanner) {
+    public static void startGame(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name? ");
         String userName = scanner.next();
@@ -209,10 +204,10 @@ class ProgressionGame {
             int start = generateRandomNumber();
             int step = random.nextInt(RANDOM_STEP_RANGE) + 1;
             int missIndex = generateRandomStepRange();
-            int[] progression = new int RANDOM_STEP_RANGE;
+            int[] progression = new int [RANDOM_STEP_RANGE];
 
             StringBuilder question = new StringBuilder();
-            for (int i = 0; i < RANDOM_STEP_RANGE(); i++) {
+            for (int i = 0; i < RANDOM_STEP_RANGE; i++) {
                 progression[i] = start + i * step;
                 question.append(i == missIndex ? ".. " : progression[i] + " ");
             }
@@ -245,18 +240,38 @@ class ProgressionGame {
     }
 }
 class PrimeGame {
-    public static void prime(Scanner scanner) {
+
+    private static final int NUM_ITERATIONS = 3;
+    private static final int RANDOM_UPPER_BOUND = 100;
+
+    public static int generateRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(RANDOM_UPPER_BOUND) + 1;
+    }
+
+    public static boolean isPrime(int num1) {
+        if (num1 <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num1); i++) {
+            if (num1 % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void startGame(Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-        Random random = new Random();
         int correctAnswersCount = 0;
 
         while (correctAnswersCount < NUM_ITERATIONS) {
-            int randomNumber1 = random.nextInt(RANDOM_UPPER_BOUND);
+            int randomNumber1 = generateRandomNumber();
             System.out.println("Question: " + randomNumber1);
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
@@ -267,11 +282,8 @@ class PrimeGame {
                 continue; // Пропускаем итерацию цикла и продолжаем игру
             }
 
-            int d = 2;
-            while (randomNumber1 % d != 0 && d != randomNumber1) {
-                d++;
-            }
-            String correctAnswer = (d == randomNumber1) ? "yes" : "no";
+            boolean isPrime = isPrime(randomNumber1);
+            String correctAnswer = isPrime ? "yes" : "no";
 
             if (userAnswer.equals(correctAnswer)) {
                 System.out.println("Correct!");
@@ -286,4 +298,3 @@ class PrimeGame {
         System.out.println("Congratulations, " + userName + "!");
     }
 }
-
