@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import Games.Calculator;
+import hexlet.code.Games.Even;
+import hexlet.code.Games.Calculator;
+import hexlet.code.Games.Gcd;
+import hexlet.code.Games.Progression;
+import hexlet.code.Games.Prime;
 
 import java.util.Scanner;
 
@@ -35,19 +39,19 @@ public class App {
                 System.out.println("Goodbye!");
                 break;
             case EVEN_GAME:
-                EvenGame.startGame(scanner);
+                Even.startGame();
                 break;
             case CALC_GAME:
-                Calculator.startGame(scanner);
+                Calculator.startGame();
                 break;
             case GCD_GAME:
-                GcdGame.startGame(scanner);
+                Gcd.startGame();
                 break;
             case PROGRESSION_GAME:
-                ProgressionGame.startGame(scanner);
+                Progression.startGame();
                 break;
             case PRIME_GAME:
-                PrimeGame.startGame(scanner);
+                Prime.startGame();
                 break;
             default:
                 System.out.println("Invalid choice. Please enter a valid game number.");
