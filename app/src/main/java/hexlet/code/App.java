@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import Games.Calculator;
+
 import java.util.Scanner;
 
 public class App {
@@ -27,7 +29,7 @@ public class App {
 
         switch (choice) {
             case GREET_GAME:
-                Cli.welcomeUser();
+                Cli.greetings();
                 break;
             case EXIT_GAME:
                 System.out.println("Goodbye!");
@@ -36,7 +38,7 @@ public class App {
                 EvenGame.startGame(scanner);
                 break;
             case CALC_GAME:
-                CalculatorGame.startGame(scanner);
+                Calculator.startGame(scanner);
                 break;
             case GCD_GAME:
                 GcdGame.startGame(scanner);
