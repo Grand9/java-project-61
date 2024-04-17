@@ -11,6 +11,5 @@ public class Cli {
         String userName = scanner.nextLine();
         System.out.println("Hello, " + userName + "!");
         scanner.close();
-        System.exit(0); // Добавляем эту строку для завершения программы
     }
 }

@@ -2,23 +2,20 @@ package hexlet.code.Games;
 
 import hexlet.code.Engine;
 import java.util.Random;
+import hexlet.code.Utils;
 
 public class Even {
 
-    private static final int NUM_ITERATIONS = 3;
     private static final int RANDOM_UPPER_BOUND = 100;
 
-    public static int generateRandomNumber() {
-        Random random = new Random();
-        return random.nextInt(RANDOM_UPPER_BOUND);
-    }
+
 
     public static String[][] generateGameData() {
-        String[][] data = new String[NUM_ITERATIONS][2];
+        String[][] data = new String[Engine.COUNT_OF_ROUNDS][2];
         Random random = new Random();
 
-        for (int i = 0; i < NUM_ITERATIONS; i++) {
-            int randomNumber = generateRandomNumber();
+        for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
+            int randomNumber = Utils.generateNumber(0, 100);
             data[i][0] = String.valueOf(randomNumber);
             data[i][1] = (randomNumber % 2 == 0) ? "yes" : "no";
         }

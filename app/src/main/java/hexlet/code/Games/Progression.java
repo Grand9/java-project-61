@@ -1,28 +1,19 @@
 package hexlet.code.Games;
 
 import hexlet.code.Engine;
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class Progression {
 
-    private static final int NUM_ITERATIONS = 3;
     private static final int PROGRESSION_LENGTH = 10;  // Set length of the arithmetic progression
-    private static final int MAX_START_VALUE = 100;
-    private static final int MAX_STEP = 10;
-
-    public static int generateRandomNumber(int upperBound) {
-        Random random = new Random();
-        return random.nextInt(upperBound) + 1;
-    }
 
     public static String[][] generateGameData() {
-        String[][] gameData = new String[NUM_ITERATIONS][2];
-        Random random = new Random();
+        String[][] gameData = new String[Engine.COUNT_OF_ROUNDS][2];
 
-        for (int i = 0; i < NUM_ITERATIONS; i++) {
-            int start = generateRandomNumber(MAX_START_VALUE);
-            int step = generateRandomNumber(MAX_STEP);
-            int missIndex = random.nextInt(PROGRESSION_LENGTH);
+        for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
+            int start = Utils.generateNumber(0, 100);
+            int step = Utils.generateNumber(1, 10);  // Ensuring step is at least 1 to avoid a static progression
+            int missIndex = Utils.generateNumber(0, PROGRESSION_LENGTH - 1);
             int[] progression = new int[PROGRESSION_LENGTH];
             StringBuilder question = new StringBuilder();
 
