@@ -21,7 +21,7 @@ public class Prime {
     public static String[][] generateGameData() {
         String[][] gameData = new String[Engine.COUNT_OF_ROUNDS][2];
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            int randomNumber = Utils.generateNumber(0, 100);
+            int randomNumber = Utils.generateNumber(0, Utils.RANDOM_UPPER_BOUND);
             gameData[i][0] = String.valueOf(randomNumber);
             gameData[i][1] = checkIfPrime(randomNumber) ? "yes" : "no";
         }

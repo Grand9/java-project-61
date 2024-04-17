@@ -6,17 +6,13 @@ import hexlet.code.Utils;
 
 public class Calculator {
 
-    private static final int RANDOM_UPPER_BOUND = 100;
-
-
-
     public static String[][] generateGameData() {
         String[][] data = new String[Engine.COUNT_OF_ROUNDS][2];
         Random random = new Random();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            int num1 = Utils.generateNumber(0, 100);
-            int num2 = Utils.generateNumber(0, 100);
+            int num1 = Utils.generateNumber(0, Utils.RANDOM_UPPER_BOUND);
+            int num2 = Utils.generateNumber(0, Utils.RANDOM_UPPER_BOUND);
             char[] signs = {'+', '-', '*'};
             char sign = signs[random.nextInt(signs.length)];
             int correctAnswer = calculate(num1, num2, sign);

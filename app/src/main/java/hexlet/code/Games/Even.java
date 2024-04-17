@@ -6,16 +6,13 @@ import hexlet.code.Utils;
 
 public class Even {
 
-    private static final int RANDOM_UPPER_BOUND = 100;
-
-
 
     public static String[][] generateGameData() {
         String[][] data = new String[Engine.COUNT_OF_ROUNDS][2];
         Random random = new Random();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            int randomNumber = Utils.generateNumber(0, 100);
+            int randomNumber = Utils.generateNumber(0, Utils.RANDOM_UPPER_BOUND);
             data[i][0] = String.valueOf(randomNumber);
             data[i][1] = (randomNumber % 2 == 0) ? "yes" : "no";
         }
