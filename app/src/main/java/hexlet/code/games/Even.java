@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Random;
 import hexlet.code.Utils;
 
 public class Even {
@@ -9,12 +8,11 @@ public class Even {
 
     public static String[][] generateGameData() {
         String[][] data = new String[Engine.COUNT_OF_ROUNDS][2];
-        Random random = new Random();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
             int randomNumber = Utils.generateNumber(0, Utils.RANDOM_UPPER_BOUND);
             data[i][0] = String.valueOf(randomNumber);
-            data[i][1] = (randomNumber % 2 == 0) ? "yes" : "no";
+            data[i][1] = isEven(randomNumber) ? "yes" : "no";
         }
         return data;
     }
@@ -23,5 +21,9 @@ public class Even {
         String[][] gameData = generateGameData();
         String gameDescription = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         Engine.startGame(gameData, gameDescription);
+    }
+
+    private static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }
