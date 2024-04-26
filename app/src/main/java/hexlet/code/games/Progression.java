@@ -6,7 +6,7 @@ import hexlet.code.Utils;
 public class Progression {
 
     private static final int PROGRESSION_LENGTH = 10;
-
+    private static final String GAME_DESCRIPTION = "What number is missing in the progression?";
     public static String[][] generateGameData() {
         String[][] gameData = new String[Engine.COUNT_OF_ROUNDS][2];
 
@@ -30,8 +30,7 @@ public class Progression {
 
     public static void startGame() {
         String[][] gameData = generateGameData();
-        String gameDescription = "What number is missing in the progression?";
-        Engine.startGame(gameData, gameDescription);
+        Engine.startGame(gameData, GAME_DESCRIPTION);
     }
 
     private static String[] generateArithmeticProgression(int first, int step) {
